@@ -15,6 +15,3 @@ steps:
       - test-collector#v1.0.0:
           files: "build/test-results.xml"
           format: "junit"
-  
-    artifact_paths:
-      - "build/test-results.xml"
