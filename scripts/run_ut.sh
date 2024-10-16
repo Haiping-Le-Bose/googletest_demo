@@ -1,5 +1,4 @@
 #!/bin/bash
 
-
-#./CalculatorTest --gtest_output=xml:test-results.xml
-pwd
+cd build
+./CalculatorTest --gtest_output=xml:test-results.xml
