@@ -1,5 +1,3 @@
-mkdir build
-cd build
-cmake ../
-make
+#!/bin/bash
+
 ./CalculatorTest --gtest_output=xml:test-results.xml
