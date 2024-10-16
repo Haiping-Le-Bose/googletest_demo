@@ -13,4 +13,11 @@ steps:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
     artifact_paths:
-      - "build/test_results.xml"
+      - "build/junit_output.xml"
+
+  - wait : ~
+  - label : "visualize teset result"
+    plugins:
+      - test-collector#v1.0.0:
+          files: "build/junit_output.xml"
+          format: "junit"
