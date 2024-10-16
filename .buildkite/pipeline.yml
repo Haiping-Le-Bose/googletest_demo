@@ -6,6 +6,7 @@ steps:
       - "build/*"
 
   - label: ":white_check_mark: Test"
+    download: "build/*"
     command: "scripts/run_ut.sh"
     artifact_paths:
       - "build/test-results.xml"
