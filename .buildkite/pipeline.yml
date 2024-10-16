@@ -12,3 +12,5 @@ steps:
     plugins:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
+    artifact_paths:
+      - "build/test_results.xml"
