@@ -1,11 +1,11 @@
 steps:
- - label: ":construction_worker: Build"
+  - label: ":construction_worker: Build"
     command: "scripts/build.sh"
     key: build
     artifact_paths:
       - "build/*"
 
- - label: ":white_check_mark: Test"
+  - label: ":white_check_mark: Test"
     command: "scripts/run_ut.sh"
     artifact_paths:
       - "build/test-results.xml"
