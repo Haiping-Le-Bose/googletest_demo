@@ -15,6 +15,7 @@ steps:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
 
+    plugins:
       - test-collector#v1.0.0:
           files: "build/junit_output.xml"
           format: "junit"
