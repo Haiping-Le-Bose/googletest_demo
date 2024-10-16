@@ -1,0 +1,6 @@
+steps:
+  - label: ":cpp: Build and Test"
+    command: "scripts/run_ut.sh"
+    artifact_paths:
+      - "build/*"
+      - "build/test-results.xml"
