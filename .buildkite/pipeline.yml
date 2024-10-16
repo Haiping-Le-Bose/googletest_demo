@@ -6,9 +6,12 @@ steps:
       - "build/*"
 
   - label: ":white_check_mark: Test"
-    download: "build/*"
     command: "scripts/run_ut.sh"
-    artifact_paths:
-      - "build/test-results.xml"
     key: test
     depends_on: build
+    plugins:
+      - artifacts#v1.1.0:
+          download: "build/*"  # 下载上一步的构建物
+
+    artifact_paths:
+      - "build/test-results.xml"
