@@ -12,10 +12,9 @@ steps:
     plugins:
       - artifacts#v1.1.0:
           download: "build/*"  # 下载上一步的构建物
-
-    plugins:
-      - junit-xml#v2.0.0:
-          files: "build/test-results.xml"
-
+      - test-collector#v1.0.0:
+          files: "test/junit-*.xml"
+          format: "junit"
+  
     artifact_paths:
       - "build/test-results.xml"
