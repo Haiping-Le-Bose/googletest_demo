@@ -1,2 +1,2 @@
 # googletest_demo
-Integrate googtest  into buildkite
+Integrate googletest  into buildkite
