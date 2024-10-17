@@ -21,8 +21,9 @@ steps:
 
   - label: "Show unit test result"
     command: "echo visualize test result"
+    depends_on: test
     env:
-      BUILDKITE_ANALYTICS_TOKEN: EShp8vZEG4nj67JuwsWTqPS9
+      BUILDKITE_ANALYTICS_TOKEN: EShp8vZEG4nj67JuwsWTqPS9 # The token will be generated automatically once the test suit has been created
     plugins:
       - artifacts#v1.1.0:
           download: "build/test_results.xml"
