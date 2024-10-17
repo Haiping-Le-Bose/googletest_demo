@@ -12,6 +12,7 @@ steps:
     key: test
     depends_on: build
     artifact_paths:
+      - "build/test_results.xml"
       - "build/junit_output.xml"
     plugins:
       - artifacts#v1.1.0:
@@ -20,9 +21,11 @@ steps:
 
   - label: "Show unit test result"
     command: "echo visualize test result"
+    env:
+      BUILDKITE_ANALYTICS_TOKEN: EShp8vZEG4nj67JuwsWTqPS9
     plugins:
       - artifacts#v1.1.0:
-          download: "build/junit_output.xml"
+          download: "build/test_results.xml"
       - test-collector#v1.0.0:
-          files: "build/junit_output.xml"
+          files: "build/test_results.xml"
           format: "junit"
