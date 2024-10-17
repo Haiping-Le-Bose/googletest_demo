@@ -21,7 +21,6 @@ steps:
   - label: ""
     command: "echo visualize test result"
     plugins:
-      plugins:
       - artifacts#v1.1.0:
           download: "build/junit_output.xml"
       - test-collector#v1.0.0:
