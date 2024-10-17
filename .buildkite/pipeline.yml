@@ -5,12 +5,27 @@ steps:
     artifact_paths:
       - "build/*"
 
+  - wait: ~
+
   - label: ":white_check_mark: Test"
     command: "scripts/run_ut.sh"
     key: test
     depends_on: build
+    artifact_paths:
+      - "build/test_results.xml"
+      - "build/junit_output.xml"
     plugins:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
-    artifact_paths:
-      - "build/test_results.xml"
+  - wait: ~
+
+  - label: "Show unit test result"
+    command: "echo visualize test result"
+    env:
+      BUILDKITE_ANALYTICS_TOKEN: EShp8vZEG4nj67JuwsWTqPS9
+    plugins:
+      - artifacts#v1.1.0:
+          download: "build/test_results.xml"
+      - test-collector#v1.0.0:
+          files: "build/test_results.xml"
+          format: "junit"
