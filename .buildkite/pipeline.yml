@@ -11,14 +11,19 @@ steps:
     command: "scripts/run_ut.sh"
     key: test
     depends_on: build
+    artifact_paths:
+      - "build/junit_output.xml"
     plugins:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
+  - wait: ~
 
+  - label: ""
+    command: "echo visualize test result"
     plugins:
+      plugins:
+      - artifacts#v1.1.0:
+          download: "build/junit_output.xml"
       - test-collector#v1.0.0:
           files: "build/junit_output.xml"
           format: "junit"
-
-    artifact_paths:
-      - "build/junit_output.xml"
