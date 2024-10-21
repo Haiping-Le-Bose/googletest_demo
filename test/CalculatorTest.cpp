@@ -10,7 +10,7 @@ TEST(CalculatorTest, Add) {
 
 TEST(CalculatorTest, Subtract) {
     Calculator cal;
-    EXPECT_EQ(cal.subtract(2, 1), 1);
+    EXPECT_EQ(cal.subtract(2, 1), 2);
     EXPECT_EQ(cal.subtract(-1, -1), 0);
     EXPECT_EQ(cal.subtract(100, 50), 50);
 }
