@@ -5,7 +5,7 @@ steps:
     artifact_paths:
       - "build/*"
 
-  - wait: ~
+  - wait
 
   - label: ":white_check_mark: Test"
     command: "scripts/run_ut.sh"
@@ -17,7 +17,7 @@ steps:
     plugins:
       - artifacts#v1.1.0:
           download: "build/*"  # download the artifacts produced by last step
-  - wait: ~
+  - wait
 
   - label: "Show unit test result"
     command: "echo visualize test result"
